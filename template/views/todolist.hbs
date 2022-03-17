@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    {{>link}}
+</head>
+
+<body>
+    {{>navbar}}
+
+
+    <div class="row">
+               {{#each data}}
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.desc}}</p>
+                    <p class="card-text">Completed: {{this.isactive}}</p>
+                    <a href="/todoedit/{{this._id}}"><button class="btn btn-primary">Edit</button></a>
+                    <a href="/tododelete/{{this._id}}"><button class="btn btn-primary">Delete</button></a>
+                </div>
+            </div>
+        </div>
+        
+         
+            {{/each}}
+    </div>
+
+
+
+</body>
+
+</html>

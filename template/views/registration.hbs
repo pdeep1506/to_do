@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    {{>link}}
+</head>
+<body>
+    {{>navbar}}
+
+    {{#if msg}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <strong>{{msg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {{/if}}
+    <div style="width: 75%;height:100%">
+
+    <form onsubmit="/registration" method="post">
+        <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+   </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+    <input type="number"  name='number' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+   </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+   </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password1" class="form-control" id="exampleInputPassword1" required>
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Re-enter Password</label>
+    <input type="password" name="password2" class="form-control" id="exampleInputPassword1" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Create Account</button>
+</form>
+    </div>
+</body>
+</html>

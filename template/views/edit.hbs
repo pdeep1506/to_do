@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {{>link}}
+</head>
+
+<body>
+    {{>navbar}}
+
+    <div style="width: 75%;height:100%">
+    {{#if data}}
+        <form onsubmit="/todoedit/{{this._id}}" method="post">
+    
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 value={{data.name}}   >
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Description</label><br>
+                <textarea id="w3review"  name="desc" rows="4" cols="70" required placeholder={{data.desc}}></textarea>
+            </div>
+            <div class="mb-3">
+
+                <p>Task is completed</p>
+                  <input type="radio" id="html" name="pending" value="true" required>
+                  <label for="html" >True</label><br>
+                  <input type="radio" id="css" name="pending" value="false" required>
+                  <label for="css">False</label><br>
+                 
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        {{/if}}
+        </form>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
