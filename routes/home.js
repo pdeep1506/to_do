@@ -4,7 +4,7 @@ const userModel = require('../db/models/user');
 const routers = express.Router();
 const  todoModel = require('../db/models/todoform')
 const cookieparser = require('cookie-parser')
-
+const bcryptjs = require('bcryptjs');
 routers.use(cookieparser());
 routers.get('/',(req,res)=>{
     res.render('home')
@@ -52,10 +52,13 @@ routers.post('/login',async(req,res)=>{
         const email = req.body.email;
         const password = req.body.password;
         const userData = await userModel.findOne({email:email})
+        const userPassword = userData.password
+        const isMatch = await bcryptjs.compare(password, userPassword);
+
         res.cookie('email', email,{
             httpOnly:true,expires: new Date(Date.now() + 12345678)
         });
-        if(userData.password === password){
+        if(isMatch){
                 
                 res.render('home',{
                     data: userData,
