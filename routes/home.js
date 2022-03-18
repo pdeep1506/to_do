@@ -159,4 +159,27 @@ routers.post('/todoform',async(req,res)=>{
         res.send(e)
     }
 })
+
+
+// Search module
+
+routers.post('/search', async(req,res)=>{
+    const name = req.body.search;
+    const email = req.cookies.email
+    const data = await todoModel.find({name: name, email: email})
+    
+    try{
+
+        res.render('todolist',{
+            userisLogin: true, 
+            data :data
+        })
+    }
+    catch(e){
+        res.send(e)
+    }
+})
+
+
+
 module.exports = routers;
